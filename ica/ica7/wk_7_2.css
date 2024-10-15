@@ -1,0 +1,47 @@
+/* ~~~ the section we will change for our class notes to apply flexbox / grid starts here! ~~~ */
+
+/* ~~ this is where we apply flexbox styling ~~ */
+
+#my_flexbox{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    /*align-items: center, flex-start, flex-end, stretch, baseline;*/
+    /*flex-direction: column;*/
+    /*justify-content: center, flex-start, flex-end, space-around, space-between; */
+    flex-wrap: wrap
+}
+
+.info_card{
+    max-width:30vw;
+    min-width: 400px;
+}
+
+#info_1{
+    flex-grow: .4;
+    order:1;
+} */
+
+/* ~~ this is where we apply grid styling ~~ */
+
+#my_grid{
+    display: grid;
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    /* fr unit the width of the column*/
+    justify-content: center;
+    width: 100vw;
+}
+
+/* .unicorns{
+    grid-row: span 2;
+}
+
+#unicorns_1{
+    grid-column: span 1;
+}
+
+#unicorns_2{
+    grid-column: span 2;
+} */
