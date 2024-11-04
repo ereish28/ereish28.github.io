@@ -1,3 +1,7 @@
+console.log("JavaScript file is loaded.");
+
+
+document.addEventListener("DOMContentLoaded", function() {
 const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
 const story = document.querySelector('.story');
@@ -9,7 +13,7 @@ function randomValueFromArray(array){
 
 const storyText = 'It was 200 fahrenheit outside, so :insertx: flew to mars. When they arrived to :inserty:, they landed in a crater, then :insertz:. an 8-legged alien appeared — :insertx: weighs 5 pounds, and it was red outside.';
 const insertX = ['Rocky Rebecca', 'Big Bart', 'Dancing Dana'];
-const insertY = ['7-Eleven', 'JCPenny', 'Safeway'];
+const insertY = ['7-Eleven', 'JCPenney', 'Safeway'];
 const insertZ = ['set on fire and disinigrated', 'exploded', 'morphed into a butterfly and flew away'];
 
 randomize.addEventListener ('click', result);
@@ -25,16 +29,19 @@ function result() {
 
   if(customName.value !== '') {
     const name = customName.value;
+    newStory = newStory.replaceAll('Susie', name);
   }
 
 
   if (document.getElementById("uk").checked) {
-    const weight = `${Math.round(5*0.0714286)} stone`;
-    const temperature =  `${Math.round((200-32) * 5 / 9)} centigrade`;
+    const weight = `${Math.round(5*0.071428)} stone`;
+    const temperature = `${Math.round((200-32) * 5 / 9)} celsius`;
     newStory = newStory.replaceAll('200 fahrenheit', temperature);
     newStory = newStory.replaceAll('5 pounds', weight);
   }
 
-  story.textContent = newStory;
+  
+  story.textContent = newStory; 
   story.style.visibility = 'visible';
 }
+});
