@@ -11,12 +11,13 @@ function randomValueFromArray(array){
   return array[random];
 }
 
-const storyText = 'It was 200 fahrenheit outside, so :insertx: flew to mars. When they arrived to :inserty:, they landed in a crater, then :insertz:. an 8-legged alien appeared — :insertx: weighs 5 pounds, and it was red outside.';
+const storyText = 'It was 200 fahrenheit outside, so :insertx: flew to mars. When they arrived to :inserty:, Susie was scared, then :insertz:. an 8-legged alien appeared — :insertx: weighs 5 pounds, and it was red outside.';
 const insertX = ['Rocky Rebecca', 'Big Bart', 'Dancing Dana'];
 const insertY = ['7-Eleven', 'JCPenney', 'Safeway'];
 const insertZ = ['set on fire and disinigrated', 'exploded', 'morphed into a butterfly and flew away'];
 
-randomize.addEventListener ('click', result);
+console.log("Attaching event listener");
+randomize.addEventListener('click', result);
 
 function result() {
     let newStory = storyText;
