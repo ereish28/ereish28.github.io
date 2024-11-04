@@ -15,7 +15,6 @@ const insertZ = ['set on fire and disinigrated', 'exploded', 'morphed into a but
 randomize.addEventListener ('click', result);
 
 function result() {
-    console.log("Click event fired!");
     let newStory = storyText;
     const xItem = randomValueFromArray(insertX);
     const yItem = randomValueFromArray(insertY);
@@ -26,14 +25,14 @@ function result() {
 
   if(customName.value !== '') {
     const name = customName.value;
-    newStory = newStory.replaceAll(xItem, name);
   }
 
-  if(document.getElementById("uk").checked) {
-    const weight = Math.round(5 * 0.453592);
-    const temperature =  Math.round((200 - 32) * 5 / 9);
-    newStory = newStory.replaceAll('200 fahrenheit', `${temperature} Celsius`);
-    newStory = newStory.replaceAll('5 pounds', `${weight} kg`);
+
+  if (document.getElementById("uk").checked) {
+    const weight = `${Math.round(5*0.0714286)} stone`;
+    const temperature =  `${Math.round((200-32) * 5 / 9)} centigrade`;
+    newStory = newStory.replaceAll('200 fahrenheit', temperature);
+    newStory = newStory.replaceAll('5 pounds', weight);
   }
 
   story.textContent = newStory;
