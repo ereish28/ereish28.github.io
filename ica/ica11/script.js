@@ -1,61 +1,52 @@
-// Function to tell fortune
-function tellFortune(numChildren, partnerName, geoLocation, jobTitle) {
+// Array of fortunes
+const fortunes = [
+    { numChildren: 2, partnerName: "Alex", geoLocation: "Denver", jobTitle: "Engineer" },
+    { numChildren: 3, partnerName: "Jamie", geoLocation: "Boulder", jobTitle: "Designer" },
+    { numChildren: 1, partnerName: "Taylor", geoLocation: "New York", jobTitle: "Doctor" }
+];
+
+// Function to tell a random fortune
+function tellRandomFortune() {
+    const randomIndex = Math.floor(Math.random() * fortunes.length);
+    const { numChildren, partnerName, geoLocation, jobTitle } = fortunes[randomIndex];
     const fortune = `You will be a ${jobTitle} in ${geoLocation}, and married to ${partnerName} with ${numChildren} kids.`;
-    document.getElementById("output").innerHTML += `<p>${fortune}</p>`;
+    document.getElementById("output").innerHTML = `<p>${fortune}</p>`;
 }
 
-// Calling tellFortune function
-tellFortune(2, "Alex", "Denver", "Engineer");
-tellFortune(3, "Jamie", "Boulder", "Designer");
-tellFortune(1, "Taylor", "New York", "Doctor");
+// Event listener for fortune button
+document.getElementById("fortuneButton").addEventListener("click", tellRandomFortune);
 
 // Function to calculate dog age
 function calculateDogAge(puppyAge) {
     const dogAge = puppyAge * 7;
-    const message = `Your doggie is ${dogAge} years old in dog years!`;
-    document.getElementById("output").innerHTML += `<p>${message}</p>`;
+    return `Your doggie is ${dogAge} years old in dog years!`;
 }
 
-// Calling calculateDogAge function
-calculateDogAge(1);
-calculateDogAge(3);
-calculateDogAge(5);
-
-// Challenge: Enable user input for dog age
-function inputDogAge() {
+// Function to handle dog age input
+function handleDogAgeInput() {
     const age = prompt("Enter your dog's age in human years:");
-    calculateDogAge(Number(age));
+    if (age) {
+        const message = calculateDogAge(Number(age));
+        document.getElementById("output").innerHTML = `<p>${message}</p>`;
+    } else {
+        document.getElementById("output").innerHTML = `<p>Please enter a valid age.</p>`;
+    }
 }
 
-// Call inputDogAge to prompt user
-inputDogAge();
+// Event listener for dog age button
+document.getElementById("dogAgeButton").addEventListener("click", handleDogAgeInput);
 
 // Function to reverse a number
 function reverseNumber(num) {
-    const reversed = num.toString().split('').reverse().join('');
-    document.getElementById("output").innerHTML += `<p>Reversed number: ${reversed}</p>`;
+    return num.toString().split('').reverse().join('');
 }
-
-// Calling reverseNumber function
-reverseNumber(32243);
-reverseNumber(12345);
 
 // Function to sort letters in alphabetical order
 function alphabeticalOrder(str) {
-    const sortedStr = str.split('').sort().join('');
-    document.getElementById("output").innerHTML += `<p>Sorted letters: ${sortedStr}</p>`;
+    return str.split('').sort().join('');
 }
-
-// Calling alphabeticalOrder function
-alphabeticalOrder('webmaster');
-alphabeticalOrder('javascript');
 
 // Function to capitalize the first letter of each word
 function capitalizeWords(str) {
-    const capitalized = str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-    document.getElementById("output").innerHTML += `<p>Capitalized: ${capitalized}</p>`;
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
-
-// Calling capitalizeWords function
-capitalizeWords('the quick brown fox');
-capitalizeWords('hello world');
