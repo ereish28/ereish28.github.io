@@ -1,11 +1,11 @@
-// Array of fortunes
+// fortune
 const fortunes = [
-    { numChildren: 2, partnerName: "Alex", geoLocation: "Denver", jobTitle: "Engineer" },
-    { numChildren: 3, partnerName: "Jamie", geoLocation: "Boulder", jobTitle: "Designer" },
-    { numChildren: 1, partnerName: "Taylor", geoLocation: "New York", jobTitle: "Doctor" }
+    { numChildren: 2, partnerName: "Alexa", geoLocation: "Denver", jobTitle: "Engineer" },
+    { numChildren: 3, partnerName: "Jane", geoLocation: "Boulder", jobTitle: "Designer" },
+    { numChildren: 1, partnerName: "Bree", geoLocation: "Golden", jobTitle: "Doctor" }
 ];
 
-// Function to tell a random fortune
+// fortune
 function tellRandomFortune() {
     const randomIndex = Math.floor(Math.random() * fortunes.length);
     const { numChildren, partnerName, geoLocation, jobTitle } = fortunes[randomIndex];
@@ -13,16 +13,16 @@ function tellRandomFortune() {
     document.getElementById("output").innerHTML = `<p>${fortune}</p>`;
 }
 
-// Event listener for fortune button
+// fortune
 document.getElementById("fortuneButton").addEventListener("click", tellRandomFortune);
 
-// Function to calculate dog age
+// age
 function calculateDogAge(puppyAge) {
     const dogAge = puppyAge * 7;
     return `Your doggie is ${dogAge} years old in dog years!`;
 }
 
-// Function to handle dog age input
+// age
 function handleDogAgeInput() {
     const age = prompt("What is your puppy's age in human years?");
     if (age !== null && age.trim() !== "") {
@@ -33,17 +33,17 @@ function handleDogAgeInput() {
     }
 }
 
-// Event listener for dog age button
+// age
 document.getElementById("dogAgeButton").addEventListener("click", handleDogAgeInput);
 
-// Function to reverse a number
+
 function reverseNumber(num) {
     return num.toString().split('').reverse().join('');
 }
 
-// Function to handle number reversal input
+// reverse
 function handleReverseNumber() {
-    console.log("Reverse function called"); // Debugging log
+    console.log("Reverse function called"); 
     const num = prompt("Enter a number to reverse:");
     if (num !== null && num.trim() !== "") {
         const reversed = reverseNumber(num);
@@ -53,17 +53,17 @@ function handleReverseNumber() {
     }
 }
 
-// Event listener for reverse button
+// reverse
 document.getElementById("reverseButton").addEventListener("click", handleReverseNumber);
 
-// Function to sort letters in alphabetical order
+
 function alphabeticalOrder(str) {
     return str.split('').sort().join('');
 }
 
-// Function to handle alphabetical order input
+// alphabet
 function handleAlphabeticalOrder() {
-    console.log("Sort letters function called"); // Debugging log
+    console.log("Sort letters function called"); 
     const str = prompt("Enter a string to sort letters:");
     if (str !== null && str.trim() !== "") {
         const sorted = alphabeticalOrder(str);
@@ -73,17 +73,17 @@ function handleAlphabeticalOrder() {
     }
 }
 
-// Event listener for sort button
+
 document.getElementById("sortButton").addEventListener("click", handleAlphabeticalOrder);
 
-// Function to capitalize the first letter of each word
+// capitalize the first letter
 function capitalizeWords(str) {
     return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 }
 
-// Function to handle capitalization input
+// capitalization
 function handleCapitalizeWords() {
-    console.log("Capitalize words function called"); // Debugging log
+    console.log("Capitalize words function called"); 
     const str = prompt("Enter a string to capitalize the first letter of each word:");
     if (str !== null && str.trim() !== "") {
         const capitalized = capitalizeWords(str);
@@ -93,5 +93,5 @@ function handleCapitalizeWords() {
     }
 }
 
-// Event listener for capitalize button
+
 document.getElementById("capitalizeButton").addEventListener("click", handleCapitalizeWords);
