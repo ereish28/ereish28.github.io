@@ -5,16 +5,16 @@ const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
 /* Declaring the array of image filenames */
-const images = ['IMG1.jpg', `IMG2.jpg`, `IMG3.jpg`, `IMG4.jpg`, `IMG5.jpg`]; 
+const images = ['IMG1.jpg', `IMG2.JPG`, `IMG3.JPG`, `IMG4.JPG`, `IMG5.JPG`]; 
 
  
 /* Declaring the alternative text for each image file */
 const alts = {
   'IMG1.jpg' : 'Image of a cathedral from a distance',
-  'IMG2.jpg' : 'Cathedral in Brussels, Belgium',
-  'IMG3.jpg' : 'Grand Place - Brussels, Belgium',
-  'IMG4.jpg' : 'Hand painted ceiling',
-  'IMG5.jpg' : 'Gold statue of a man on a horse'
+  'IMG2.JPG' : 'Cathedral in Brussels, Belgium',
+  'IMG3.JPG' : 'Grand Place - Brussels, Belgium',
+  'IMG4.JPG' : 'Hand painted ceiling',
+  'IMG5.JPG' : 'Gold statue of a man on a horse'
 }
 
 /* Looping through images */
