@@ -5,7 +5,7 @@ const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
 /* Declaring the array of image filenames */
-const images = ['IMG1.JPG', `IMG2.JPG`, `IMG3.JPG`, `IMG4.JPG`, `IMG5.JPG`];
+const images = ['IMG1.JPG', `IMG2.JPG`, `IMG3.JPG`, `IMG4.JPG`, `IMG5.JPG`]; 
 
  
 /* Declaring the alternative text for each image file */
@@ -29,10 +29,6 @@ for (const image of images) {
     });
   }
 
-const newImage = document.createElement('img');
-newImage.setAttribute('src', xxx);
-newImage.setAttribute('alt', xxx);
-thumbBar.appendChild(newImage);
 
 /* Wiring up the Darken/Lighten button */
 btn.addEventListener('click', () => {

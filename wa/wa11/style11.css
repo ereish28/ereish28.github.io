@@ -7,7 +7,7 @@ body {
   width: 640px;
   margin: 0 auto;
 }
- 
+
 .full-img {
   position: relative;
   display: block;
@@ -37,7 +37,7 @@ button {
 
 .thumb-bar img {
   display: block;
-  width: 20%;
+  width: 10%;
   float: left;
   cursor: pointer;
 }
