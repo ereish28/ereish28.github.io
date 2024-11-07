@@ -17,13 +17,15 @@ const alts = {
   'IMG5.JPG' : 'Gold statue of a man on a horse'
 }
 
+
+
 /* Looping through images */
 for (const image of images) {
     const newImage = document.createElement('img');
     const imgSrc = `images/${image}`;
     console.log("Trying to load image at:", imgSrc);
 
-    newImage.setAttribute('src', `images/${image}`);
+    newImage.setAttribute('src', `./images/${image}`); 
     newImage.setAttribute('alt', alts[image]);
     thumbBar.appendChild(newImage);
 
