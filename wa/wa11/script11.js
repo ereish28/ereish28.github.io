@@ -5,24 +5,28 @@ const btn = document.querySelector('button');
 const overlay = document.querySelector('.overlay');
 
 /* Declaring the array of image filenames */
-const images = ['IMG1.JPG', `IMG2.JPG`, `IMG3.JPG`, `IMG4.JPG`, `IMG5.JPG`]; 
+const images = ['IMG1.jpg', `IMG2.jpg`, `IMG3.jpg`, `IMG4.jpg`, `IMG5.jpg`]; 
 
  
 /* Declaring the alternative text for each image file */
 const alts = {
-  'IMG1.JPG' : 'Image of a cathedral from a distance',
-  'IMG2.JPG' : 'Cathedral in Brussels, Belgium',
-  'IMG3.JPG' : 'Grand Place - Brussels, Belgium',
-  'IMG4.JPG' : 'Hand painted ceiling',
-  'IMG5.JPG' : 'Gold statue of a man on a horse'
+  'IMG1.jpg' : 'Image of a cathedral from a distance',
+  'IMG2.jpg' : 'Cathedral in Brussels, Belgium',
+  'IMG3.jpg' : 'Grand Place - Brussels, Belgium',
+  'IMG4.jpg' : 'Hand painted ceiling',
+  'IMG5.jpg' : 'Gold statue of a man on a horse'
 }
 
 /* Looping through images */
 for (const image of images) {
     const newImage = document.createElement('img');
+    const imgSrc = `images/${image}`;
+    console.log("Trying to load image at:", imgSrc);
+
     newImage.setAttribute('src', `images/${image}`);
     newImage.setAttribute('alt', alts[image]);
     thumbBar.appendChild(newImage);
+
     newImage.addEventListener('click', e => {
       displayedImage.src = e.target.src;
       displayedImage.alt = e.target.alt;
