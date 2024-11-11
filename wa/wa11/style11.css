@@ -41,12 +41,15 @@ button {
 
 .thumb-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+  justify-content: space-between;
+  flex-wrap: nowrap; 
+  width: 100%; 
+  margin-top: 10px;
 }
 
 .thumb-bar img {
-  width: 120px;
-  height: auto;
+  flex: 1; 
+  max-width: 100%; 
+  height: auto; 
   cursor: pointer;
 }
