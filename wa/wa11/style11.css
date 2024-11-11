@@ -42,14 +42,14 @@ button {
 .thumb-bar {
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap; 
-  width: 100%; 
+  flex-wrap: nowrap;
+  width: 100%;
+  gap: 5px;
   margin-top: 10px;
 }
 
 .thumb-bar img {
-  flex: 1; 
-  max-width: 100%; 
-  height: auto; 
+  width: 120px; /* Fixed width for each thumbnail */
+  height: auto; /* Maintains aspect ratio */
   cursor: pointer;
 }
