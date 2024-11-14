@@ -1,7 +1,8 @@
 let myData = {};
 
 function fetchData(){
-    fetch("https://corsproxy.io/?https://xkcd.com/0/info.0.json")
+    Math.floor(Math.random() * 3000);
+    fetch("https://corsproxy.io/?https://xkcd.com/${}/info.0.json")
 
     .then((res) => {
         if(res.ok) {
