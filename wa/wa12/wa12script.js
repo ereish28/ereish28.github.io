@@ -1,7 +1,7 @@
 let myData = {};
 
 function fetchData(){
-    fetch("https://corsproxy.io/?https://xkcd.com/614/info.0.json")
+    fetch("https://corsproxy.io/?https://xkcd.com/0/info.0.json")
 
     .then((res) => {
         if(res.ok) {
