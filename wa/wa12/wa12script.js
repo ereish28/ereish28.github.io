@@ -17,13 +17,13 @@ function fetchData(){
     .then ((res) => {
         myData = res;
         console.log(myData);
-        document.getElementById("comic").innerHTML = myData.title    //title
+        document.getElementById("title").innerHTML = myData.title;    //title
         document.getElementById("comic").src = myData.img; //displaying comic
-        document.getElementById("comic").alt = myData.alt   //alt tex
+        document.getElementById("comic").alt = myData.alt;   //alt tex
     })
 
 }
 
 fetchData();
 
-document.getElementById('getNewComic').addEventListener('click', fetchData());
+document.getElementById('getNewComic').addEventListener('click', e=> {fetchData();});
