@@ -1,7 +1,7 @@
 let myData = {};
 
 function fetchData(){
-    fetch("https://corsproxy.io/?https://xkcd.com/3000/info.0.json")
+    fetch("https://corsproxy.io/?https://xkcd.com/614/info.0.json")
 
     .then((res) => {
         if(res.ok) {
@@ -25,3 +25,7 @@ function fetchData(){
 }
 
 fetchData();
+
+getNewComic();
+
+document.querySelector('button').addEventListener('click', getNewComic);
