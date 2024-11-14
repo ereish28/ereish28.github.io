@@ -26,6 +26,4 @@ function fetchData(){
 
 fetchData();
 
-getNewComic();
-
-document.querySelector('button').addEventListener('click', getNewComic);
+document.getElementById('getNewComic').addEventListener('click', fetchData());
