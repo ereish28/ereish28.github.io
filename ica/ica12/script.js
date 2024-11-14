@@ -18,3 +18,5 @@ function displayRes(fact) {
 }
 
 getCatFact();
+
+document.querySelector('button').addEventListener('click', GetCatFact);
