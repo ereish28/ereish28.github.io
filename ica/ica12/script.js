@@ -1,9 +1,20 @@
+const apiEndpoint = 'https://catfact.ninja/fact';
+
 function getCatFact() {
-    fetch('https://catfact.ninja/fact')
+    fetch(apiEndpoint)
         .then(response => response.json())
         .then(data => {
-            console.log(data.fact); // Logs the fact to the console
-            document.getElementById('catFact').textContent = data.fact; // Displays the fact on the page
+            console.log(data.fact); 
+            displayRes(data.fact);  
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error); 
+            alert('Failed to fetch a cat fact'); 
+        });
 }
+
+function displayRes(fact) {
+    document.getElementById('catFact').textContent = fact;
+}
+
+getCatFact();
