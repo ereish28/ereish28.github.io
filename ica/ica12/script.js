@@ -19,4 +19,4 @@ function displayRes(fact) {
 
 getCatFact();
 
-document.querySelector('button').addEventListener('click', getCatFact);
+document.querySelector('button').addEventListener('click', getFact);
