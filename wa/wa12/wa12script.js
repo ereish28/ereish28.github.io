@@ -18,6 +18,8 @@ function fetchData(){
         myData = res;
         console.log(myData);
         document.getElementById("title").innerHTML = myData.title;    //title
+//for date, do something similar to title and add to html
+
         document.getElementById("comic").src = myData.img; //displaying comic
         document.getElementById("comic").alt = myData.alt;   //alt tex
     })
