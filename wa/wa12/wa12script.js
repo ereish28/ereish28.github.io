@@ -17,8 +17,7 @@ function fetchData(){
     .then ((res) => {
         myData = res;
         console.log(myData);
-        document.getElementById("title").innerHTML = myData.title;    //title
-//for date, do something similar to title and add to html
+        document.getElementById("title").innerHTML = myData.title;
 
         const date = `${myData.year}-${myData.month.padStart(2, '0')}-${myData.day.padStart(2, '0')}`;
         document.getElementById("date").innerHTML = `Date: ${date}`;
