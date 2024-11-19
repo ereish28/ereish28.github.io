@@ -20,9 +20,14 @@ function fetchData(){
         document.getElementById("title").innerHTML = myData.title;    //title
 //for date, do something similar to title and add to html
 
+        const date = `${myData.year}-${myData.month.padStart(2, '0')}-${myData.day.padStart(2, '0')}`;
+        document.getElementById("date").innerHTML = `Date: ${date}`;
+
+
         document.getElementById("comic").src = myData.img; //displaying comic
         document.getElementById("comic").alt = myData.alt;   //alt tex
     })
+    .catch((error) => console.error("Error fetching the comic:", error));
 
 }
 
