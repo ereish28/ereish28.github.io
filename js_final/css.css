@@ -1,0 +1,77 @@
+/* this is our index.css page for styles that will be applied to the whole website*/
+
+body {
+    background-color: #262626;
+    color: #F2AC29;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: geologica-variable, sans-serif;
+    font-style: normal;
+    font-variation-settings: "CRSV" 0, "SHRP" 0, "slnt" 0, "wght" 100;
+        
+  }
+  nav {
+    background-color: #F2AC29;
+    width: 100vw;
+    padding: .5em;
+    position: sticky;
+    top: 0;
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 1.25vh;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+ 
+  nav li {
+    padding: .5em 1em;
+  }
+
+  nav li a {
+    text-decoration: none;
+    color: #262626;
+    font-weight: 600; 
+    padding: 1.5vh;
+    transition: ease-in-out;
+    transition: color 1s;
+    transition: font-size 1s;
+  }
+
+  @media screen and (max-height: 400px) {
+    nav li a {
+      text-decoration: none;
+      font-weight: 600; 
+      padding: 1.75vh;
+      transition: ease-in-out;
+      transition: color 1s;
+      transition: font-size 1s;
+    }
+  }
+
+  nav li a:hover {
+    background-color: #262626;
+    color: #F2AC29;
+    font-size: 1.25rem;
+    border-radius: 1.25rem;
+  }
+
+  a {
+    text-decoration:none;
+    color: #a6a6a6;
+    padding: .5rem;
+    border-radius: .75rem;
+    transition: ease-in-out;
+    transition: background-color 1s;
+    transition: color 1s;
+  }
+
+  a:hover {
+    background-color: #F2AC29;
+    color: #262626;
+  }
