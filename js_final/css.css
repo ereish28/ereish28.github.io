@@ -1,7 +1,7 @@
 
 body {
-    background-color: #262626;
-    color: #F2AC29;
+    background-color: white;
+    color: rgb(117, 213, 117);
     margin: 0;
     width: 100vw;
     height: 100vh;
@@ -11,7 +11,7 @@ body {
         
   }
   nav {
-    background-color: #F2AC29;
+    background-color: rgb(117, 213, 117);
     width: 100vw;
     padding: .5em;
     position: sticky;
@@ -34,7 +34,7 @@ body {
 
   nav li a {
     text-decoration: none;
-    color: #262626;
+    color: white;
     font-weight: 600; 
     padding: 1.5vh;
     transition: ease-in-out;
@@ -54,8 +54,8 @@ body {
   }
 
   nav li a:hover {
-    background-color: #262626;
-    color: #F2AC29;
+    background-color: white;
+    color: rgb(117, 213, 117);
     font-size: 1.25rem;
     border-radius: 1.25rem;
   }
@@ -71,6 +71,6 @@ body {
   }
 
   a:hover {
-    background-color: #F2AC29;
-    color: #262626;
+    background-color: rgb(117, 213, 117);
+    color: white;
   }
