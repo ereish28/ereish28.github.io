@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Dynamic content for projects.html
-    if (window.location.pathname.includes('projects.html')) {
+    if (window.location.pathname.includes('/js_final/projects.html')) {
         fetch('projects.json')
             .then(response => response.json())
             .then(data => {
