@@ -42,8 +42,9 @@ nav li a {
 nav li a:hover {
   background-color: white;
   color: rgb(117, 213, 117);
-  font-size: 1.25rem;
-  border-radius: 0.5em;
+  font-size: 1.3rem;
+  border-radius: 1em;
+  padding: 0.7em 2em;
 }
 
 /* About Page Layout */
