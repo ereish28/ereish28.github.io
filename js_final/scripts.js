@@ -53,102 +53,112 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-// Render Projects from JSON
-function renderProjects(projects) {
-    const categories = ['CSS', 'HTML', 'JS'];
-    const tabsContainer = document.querySelector('.tabs');
-    const tabContentsContainer = document.querySelector('#projects-tabs');
+    // Render Projects from JSON
+    function renderProjects(projects) {
+        const categories = ['CSS', 'HTML', 'JS'];
+        const tabsContainer = document.querySelector('.tabs');
+        const tabContentsContainer = document.querySelector('#projects-tabs');
 
-    categories.forEach(category => {
-        // Create tab button
-        const tabButton = document.createElement('button');
-        tabButton.classList.add('tab-button');
-        tabButton.dataset.tab = category.toLowerCase();
-        tabButton.textContent = `${category} Projects`;
-        tabsContainer.appendChild(tabButton);
+        // Clear existing tabs and content
+        tabsContainer.innerHTML = '';
+        tabContentsContainer.innerHTML = '';
 
-        // Create tab content
-        const tabContent = document.createElement('div');
-        tabContent.id = category.toLowerCase();
-        tabContent.classList.add('tab-content');
+    
+        categories.forEach(category => {
+            // Create tab button
+            const tabButton = document.createElement('button');
+            tabButton.classList.add('tab-button');
+            tabButton.dataset.tab = category.toLowerCase();
+            tabButton.textContent = `${category} Projects`;
+            tabsContainer.appendChild(tabButton);
 
-        // Filter and display projects in this category
-        const categoryProjects = projects.filter(project => project.category === category);
-        categoryProjects.forEach(project => {
-            const projectContainer = document.createElement('div');
-            projectContainer.classList.add('project-container');
-            projectContainer.innerHTML = `
-                <h3>${project.name}</h3>
-                <p>${project.description}</p>
-            `;
-            tabContent.appendChild(projectContainer);
+            // Create tab content
+            const tabContent = document.createElement('div');
+            tabContent.id = category.toLowerCase();
+            tabContent.classList.add('tab-content');
+
+            // Filter and display projects in this category
+            const categoryProjects = projects.filter(project => project.category === category);
+            categoryProjects.forEach(project => {
+                const projectContainer = document.createElement('div');
+                projectContainer.classList.add('project-container');
+                projectContainer.innerHTML = `
+                    <h3>${project.name}</h3>
+                    <p>${project.description}</p>
+                `;
+
+                // Add carousel for each project
+                const carouselContainer = document.createElement('div');
+                carouselContainer.classList.add('carousel-container');
+                const carousel = document.createElement('div');
+                carousel.classList.add('carousel');
+
+                project.images.forEach(image => {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.classList.add('carousel-image-container');
+                    imgContainer.innerHTML = `<img src="${image}" class="carousel-image" alt="${project.name}">`;
+                    carousel.appendChild(imgContainer);
+                });
+
+                const prevButton = document.createElement('span');
+                prevButton.classList.add('prev');
+                prevButton.textContent = '<';
+                const nextButton = document.createElement('span');
+                nextButton.classList.add('next');
+                nextButton.textContent = '>';
+
+                carouselContainer.appendChild(carousel);
+                carouselContainer.appendChild(prevButton);
+                carouselContainer.appendChild(nextButton);
+                tabContent.appendChild(carouselContainer);
+            });
+
+            tabContentsContainer.appendChild(tabContent);
+        });
+
+        // Reinitialize tab and carousel functionality
+        initializeTabs();
+        initializeCarousel('.carousel-container');
+    }
+
+    // Initialize Tabs
+    function initializeTabs() {
+        const tabs = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab).classList.add('active');
+                });
+            });
+
+            // Set the first tab as active by default
+            if (tabs[0]) {
+                tabs[0].classList.add('active');
+                tabContents[0].classList.add('active');
+            }
+        }
+
+        // Initialize About Page Carousel
+        if (window.location.pathname.includes('about.html')) {
+            console.log("Initializing About Page Carousel");
+            initializeCarousel('.about-carousel');
+        }
 
 
-// Add carousel for each project
-const carouselContainer = document.createElement('div');
-carouselContainer.classList.add('carousel-container');
-const carousel = document.createElement('div');
-carousel.classList.add('carousel');
-
-project.images.forEach(image => {
-    const imgContainer = document.createElement('div');
-    imgContainer.classList.add('carousel-image-container');
-    imgContainer.innerHTML = `<img src="${image}" class="carousel-image" alt="${project.name}">`;
-    carousel.appendChild(imgContainer);
-});
-
-const prevButton = document.createElement('span');
-prevButton.classList.add('prev');
-prevButton.textContent = '<';
-const nextButton = document.createElement('span');
-nextButton.classList.add('next');
-nextButton.textContent = '>';
-
-carouselContainer.appendChild(carousel);
-carouselContainer.appendChild(prevButton);
-carouselContainer.appendChild(nextButton);
-tabContent.appendChild(carouselContainer);
-});
-
-tabContentsContainer.appendChild(tabContent);
-});
-
-// Reinitialize tab and carousel functionality
-initializeTabs();
-initializeCarousel('.carousel-container');
-}
-
-// Initialize Tabs
-function initializeTabs() {
-const tabs = document.querySelectorAll('.tab-button');
-const tabContents = document.querySelectorAll('.tab-content');
-
-tabs.forEach(tab => {
-tab.addEventListener('click', () => {
-tabs.forEach(t => t.classList.remove('active'));
-tabContents.forEach(content => content.classList.remove('active'));
-
-tab.classList.add('active');
-document.getElementById(tab.dataset.tab).classList.add('active');
-});
-});
-
-// Set the first tab as active by default
-if (tabs[0]) {
-tabs[0].classList.add('active');
-tabContents[0].classList.add('active');
-}
-}
-
-// Fetch and Render Projects
-if (window.location.pathname.includes('projects.html')) {
-fetch('/js_final/projects.json')
-.then(response => {
-if (!response.ok)
-    throw new Error(`HTTP error! Status: ${response.status}`);
-return response.json();
-})
-.then(data => renderProjects(data.projects))
-.catch(error => console.error('Error fetching project data:', error));
-}
-});
+        // Fetch and Render Projects
+        if (window.location.pathname.includes('projects.html')) {
+            fetch('/js_final/projects.json')
+                .then(response => {
+                    if (!response.ok)
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    return response.json();
+                })
+                .then(data => renderProjects(data.projects))
+                .catch(error => console.error('Error fetching project data:', error));
+        }
+    });
