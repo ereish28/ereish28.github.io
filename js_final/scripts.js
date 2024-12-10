@@ -16,10 +16,6 @@ if (window.location.pathname.includes('about.html')) {
       })
       .catch(error => console.error('Error fetching data:', error));
   
-    document.getElementById('toggle-vision').addEventListener('click', () => {
-      const visionSection = document.getElementById('vision-section');
-      visionSection.style.display = visionSection.style.display === 'none' ? 'block' : 'none';
-    });
   }
   
   fetch('nav.json')
