@@ -1,7 +1,7 @@
 {
     "links": [
       { "text": "About", "url": "about.html" },
-      { "text": "Prohjects", "url": "projects.html" },
+      { "text": "Projects", "url": "projects.html" },
       { "text": "Contact", "url": "contact.html" }
     ]
   }
