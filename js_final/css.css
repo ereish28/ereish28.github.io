@@ -5,7 +5,7 @@ body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  font-family: geologica-variable, sans-serif;
+  font-family: geologica-variable, Arial, sans-serif;
   font-style: normal;
   font-variation-settings: "CRSV" 0, "SHRP" 0, "slnt" 0, "wght" 100;
 }
@@ -51,22 +51,24 @@ nav li a:hover {
   align-items: flex-start; 
   gap: 20px; 
   padding: 20px; 
+  width: 100%;
 }
 
 .content {
-  flex: 1; 
+  flex: 2; 
 }
 
 .carousel-container {
-  flex: 0 0 300px; 
+  flex: 1; 
   max-width: 300px;
+  flex-shrink: 0;
 }
 
 /* Carousel Styles */
 .carousel-container {
   position: relative;
   border-radius: 15px;
-  border: 5px solid green;
+  border: 5px solid rgb(117, 213, 117);
   overflow: hidden;
 }
 
