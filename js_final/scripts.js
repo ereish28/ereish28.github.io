@@ -22,6 +22,7 @@ if (window.location.pathname.includes('about.html')) {
     .then(response => response.json())
     .then(data => {
       const nav = document.querySelector('nav');
+      nav.innerHTML = ''; 
       data.links.forEach(link => {
         const anchor = document.createElement('a');
         anchor.textContent = link.text;
