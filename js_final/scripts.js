@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.includes('about.html')) {
-      fetch('data.json')
+      fetch('json.json')
         .then(response => response.json())
         .then(data => {
           document.querySelector('h1').textContent = data.title;
