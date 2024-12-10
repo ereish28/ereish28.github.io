@@ -10,25 +10,68 @@
 <body>
     <nav></nav>
     <div class="container">
-    <div id="container">
-        <section class="section-container">
+        <div id="container">
             <h1 class="header">Projects</h1>
-        </section> 
-        <section class="section-container">
-            <h3 class="header">Overlays</h3>
-            <p><a href="https://ereish28.github.io/wa/w6assm/wa6.html" target="_blank">Click here to view the overlay example</a></p>
-        </section>
-        <section class="section-container">
-            <h3 class="header">Colorado Symphony Orchestra Website</h3>
-            <p><a href="https://mama1424.github.io/ccs_project_1.github.io/html/home.html" target="_blank">Click here to view the Symphony Orchestra example</a></p>
-        </section>
 
-        <section class="section-container">
-            <h3 class="header">Cool Cat Fact Generator</h3>
-            <p><a href="https://ereish28.github.io/ica/ica12/ica12.html" target="_blank">Click here to view the Fact Generator example</a></p>
-        </section>
+<!--navigation for tabs-->
+<div id="projects-tabs">
+    <div class="tabs">
+        <button class="tab-button active" data-tab="css">CSS Projects</button>
+        <button class="tab-button" data-tab="html">HTML Projects</button>
+        <button class="tab-button" data-tab="js">JS Projects</button>
     </div>
+
+<!--Tab content-->
+
+
+    <div id="html" class="tab-content">
+        <h2>HTML Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-image-container"><img class="carousel-image" src="images/encyclopediahtml.png" alt="HTML Project 1"></div>
+                <div class="carousel-image-container"><img class="carousel-image" src="images/letterheadhtml.png" alt="HTML Project 2"></div>
+            </div>
+            <div class="carousel-nav">
+                <span class="prev">&#60;</span>
+                <span class="next">&#62;</span>
+            </div>
+        </div>
     </div>
+
+
+    <div id="css" class="tab-content active">
+        <h2>CSS Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-image-container"><img class="carousel-image" src="images/symphonycss.png" alt="CSS Project 1"></div>
+                <div class="carousel-image-container"><img class="carousel-image" src="images/letterheadcss.png" alt="CSS Project 2"></div>
+                <div class="carousel-image-container"><img class="carousel-image" src="images/janecss.png" alt="CSS Project 3"></div>
+            </div>
+            <div class="carousel-nav">
+                <span class="prev">&#60;</span>
+                <span class="next">&#62;</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="js" class="tab-content">
+        <h2>JS Projects</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-image-container"><img class="carousel-image" src="images/factsjs.png" alt="JS Project 1"></div>
+                <div class="carousel-image-container"><img class="carousel-image" src="images/imagejs.png" alt="JS Project 2"></div>
+            </div>
+            <div class="carousel-nav">
+                <span class="prev">&#60;</span>
+                <span class="next">&#62;</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
     <script src="scripts.js"></script>
 </body>
 </html>
