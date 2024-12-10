@@ -23,29 +23,43 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching navigation data:', error)); // Log fetch errors
 
-    // Dynamic content for about.html
-    if (window.location.pathname.includes('about.html')) {
-        fetch('json.json')
-            .then(response => response.json())
-            .then(data => {
-                document.querySelector('h1').textContent = data.title;
-                document.querySelector('.description').textContent = data.description;
-                const sectionsContainer = document.querySelector('.sections');
-                data.sections.forEach(section => {
-                    const sectionDiv = document.createElement('div');
-                    sectionDiv.innerHTML = `
-                        <h2>${section.header}</h2>
-                        <p>${section.content}</p>
-                    `;
-                    sectionsContainer.appendChild(sectionDiv);
+    // Function to initialize a carousel
+    function initializeCarousel(containerSelector) {
+        const carousels = document.querySelectorAll(containerSelector);
+
+        carousels.forEach(container => {
+            const carousel = container.querySelector('.carousel');
+            const images = carousel.querySelectorAll('.carousel-image-container');
+            const prevButton = container.querySelector('.prev');
+            const nextButton = container.querySelector('.next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            if (nextButton && prevButton) {
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length; // Loop back to start
+                    updateCarousel();
                 });
-            })
-            .catch(error => console.error('Error fetching about page data:', error)); // Log errors
+
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to end
+                    updateCarousel();
+                });
+            }
+        });
     }
 
-    // Dynamic content for projects.html
+    // Initialize About Page Carousel
+    if (window.location.pathname.includes('about.html')) {
+        initializeCarousel('.about-carousel');
+    }
+
+    // Initialize Projects Page Carousel
     if (window.location.pathname.includes('projects.html')) {
-        console.log("Projects page detected");
+        initializeCarousel('.projects-carousel');
 
     // Tab functionality
         const tabs = document.querySelectorAll('.tab-button');
@@ -61,33 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-  // Carousel functionality for each tab
-
-
-  const carousels = document.querySelectorAll('.carousel-container');
-
-  carousels.forEach(container => {
-      const carousel = container.querySelector('.carousel');
-      const images = carousel.querySelectorAll('.carousel-image-container');
-      const prevButton = container.querySelector('.prev');
-      const nextButton = container.querySelector('.next');
-      let currentIndex = 0;
-
-      function updateCarousel() {
-          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      nextButton.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % images.length;
-          updateCarousel();
-      });
-
-      prevButton.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + images.length) % images.length;
-          updateCarousel();
-      });
-  });
-}
 
     // Contact form functionality for contact.html
     if (window.location.pathname.includes('contact.html')) {
