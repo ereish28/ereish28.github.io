@@ -62,6 +62,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
   // Carousel functionality for each tab
+
+
   const carousels = document.querySelectorAll('.carousel-container');
 
   carousels.forEach(container => {

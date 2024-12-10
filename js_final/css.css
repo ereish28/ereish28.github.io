@@ -87,8 +87,6 @@ nav li a:hover {
   display: block;
 }
 
-
-
 /* About Page Layout */
 #about-page {
   display: flex; 
@@ -102,7 +100,6 @@ nav li a:hover {
 .content {
   flex: 2; 
 }
-
 
 /* About Page Carousel */
 .about-carousel .carousel-image-container {
@@ -119,7 +116,7 @@ nav li a:hover {
 
 /* Projects Page Carousel */
 .projects-carousel .carousel-image-container {
-  width: 100%;
+  flex: 0 0 100%;
   aspect-ratio: 16 / 9; 
   overflow: hidden;
   display: flex;
@@ -132,8 +129,6 @@ nav li a:hover {
   height: 100%;
   object-fit: contain; 
 }
-
-
 
 .carousel-container {
   position: relative;
