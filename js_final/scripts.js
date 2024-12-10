@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("Script loaded and running..."); // Confirm script execution
 
     // Fetch navigation data
-    fetch('/js_final/nav.json')
+    fetch('nav.json')
         .then(response => {
             if (!response.ok) 
                 throw new Error(`HTTP error! Status: ${response.status}`);
