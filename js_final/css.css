@@ -62,31 +62,25 @@ nav li a:hover {
 }
 
 .carousel-container {
-  flex: 1; 
-  max-width: 300px;
-  flex-shrink: 0;
-}
-
-/* Carousel Styles */
-.carousel-container {
   position: relative;
-  z-index: 0;
+  width: 100%; 
+  max-width: 600px; 
+  margin: 0 auto; 
+  overflow: hidden;
   border-radius: 15px;
   border: 5px solid rgb(117, 213, 117);
-  overflow: hidden;
 }
 
 .carousel {
   display: flex;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 
 .carousel-image-container {
-  width: 100%;
+  flex: 0 0 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
-  border-radius: 15px;
-  border: 5px solid rgb(117, 213, 117);
 }
 
 .carousel-image {
