@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById(tab.dataset.tab).classList.add('active');
             });
         });
-
+    }
 
     // Contact form functionality for contact.html
     if (window.location.pathname.includes('contact.html')) {
