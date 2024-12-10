@@ -10,6 +10,10 @@ body {
   font-variation-settings: "CRSV" 0, "SHRP" 0, "slnt" 0, "wght" 100;
 }
 
+h1, h2, h3 {
+  font-family: 'Fredoka One', sans-serif; 
+}
+
 /* Navigation Styles */
 nav {
   background-color: rgb(117, 213, 117);
