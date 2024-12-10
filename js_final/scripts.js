@@ -1,4 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+    fetch('nav.json')
+      .then(response => response.json())
+      .then(data => {
+        const nav = document.querySelector('nav');
+        const ul = document.createElement('ul');
+        data.links.forEach(link => {
+          const li = document.createElement('li');
+          const anchor = document.createElement('a');
+          anchor.textContent = link.text;
+          anchor.href = link.url;
+          li.appendChild(anchor);
+          ul.appendChild(li);
+        });
+        nav.appendChild(ul);
+      })
+      .catch(error => console.error('Error fetching navigation data:', error));
+  
     if (window.location.pathname.includes('about.html')) {
       fetch('json.json')
         .then(response => response.json())
@@ -17,44 +34,28 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching data:', error));
     }
-
+  
     let currentIndex = 0;
     const images = document.querySelectorAll('.carousel-image');
     const totalImages = images.length;
     const nextButton = document.querySelector('.next');
     const prevButton = document.querySelector('.prev');
-
+  
     function showImage(index) {
       const carousel = document.querySelector('.carousel');
       carousel.style.transform = `translateX(-${index * 100}%)`;
     }
-
+  
     nextButton.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % totalImages;
       showImage(currentIndex);
     });
-
+  
     prevButton.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + totalImages) % totalImages;
       showImage(currentIndex);
     });
   
-    fetch('nav.json')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        const nav = document.querySelector('nav');
-        nav.innerHTML = ''; 
-        data.links.forEach(link => {
-          const anchor = document.createElement('a');
-          anchor.textContent = link.text;
-          anchor.href = link.url;
-          nav.appendChild(anchor);
-        });
-      })
-      .catch(error => console.error('Error fetching navigation data:', error));
-
-
     if (window.location.pathname.includes('projects.html')) {
       fetch('projects.json')
         .then(response => response.json())
