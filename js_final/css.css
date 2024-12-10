@@ -14,6 +14,12 @@ h1, h2, h3 {
   font-family: 'Fredoka One', sans-serif; 
 }
 
+a {
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  color: blue;
+}
+
 /* Navigation Styles */
 nav {
   background-color: rgb(117, 213, 117);
