@@ -1,0 +1,15 @@
+{
+    "title": "About This Project",
+    "description": "This page highlights details about the project. Explore to learn more!",
+    "sections": [
+      {
+        "header": "Project 1",
+        "content": "description"
+      },
+      {
+        "header": "Project 1",
+        "content": "description"
+      }
+    ]
+}
+

@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav>
-        <ul>
+        <ul id="nav-links">
             <li><a href="about.html">About</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -16,17 +16,26 @@
     </nav>
     <div id="container">
         <section class="section-container">
-            <p class="header">About Me</p>
+            <h1 id="dynamic-title">About Me</h1>
+            <p id="dynamic-description"></p>
         </section> 
         <section class="section-container">
-            <p class="header">Education</p>
+            <h2 class="header">Education</h2>
             <p>Eaglecrest High School - 2021</p>
             <p>University of Colorado Boulder - 2025</p>
         </section>
         <section class="section-container">
-            <p class="header">Experience</p>
+            <h2 class="header">Experience</h2>
             <p>Insert experience here</p>
         </section>
+        <section id="dynamic-sections" class="section-container"></section>
+        </section>
+
+        <button id="toggle-vision">Toggle Vision</button>
+        <div id="vision-section" style="display: none;">
+            <h2>more</h2>
+            <p>description</p>
     </div>
+    <script src="scripts.js"></script>
 </body>
 </html>

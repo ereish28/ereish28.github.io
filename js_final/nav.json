@@ -1,0 +1,7 @@
+{
+    "links": [
+      { "text": "Home", "url": "index.html" },
+      { "text": "About", "url": "about.html" },
+      { "text": "Contact", "url": "contact.html" }
+    ]
+  }
