@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log("Script loaded and running..."); // Confirm script execution
 
     // Fetch navigation data
-    fetch('nav.json')
+    fetch('/js_final/nav.json')
         .then(response => {
             console.log("Fetched response:", response); // Log the fetch response
             if (!response.ok) {
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Dynamic content for projects.html
-    if (window.location.pathname.includes('/js_final/projects.html')) {
+    if (window.location.pathname.includes('projects.html')) {
         fetch('projects.json')
             .then(response => response.json())
             .then(data => {
