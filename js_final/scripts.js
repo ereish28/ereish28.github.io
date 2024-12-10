@@ -17,6 +17,27 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => console.error('Error fetching data:', error));
     }
+
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-image');
+    const totalImages = images.length;
+    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev');
+
+    function showImage(index) {
+      const carousel = document.querySelector('.carousel');
+      carousel.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalImages;
+      showImage(currentIndex);
+    });
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      showImage(currentIndex);
+    });
   
     fetch('nav.json')
       .then(response => response.json())
@@ -31,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       })
       .catch(error => console.error('Error fetching navigation data:', error));
-  
+
+
     if (window.location.pathname.includes('projects.html')) {
       fetch('projects.json')
         .then(response => response.json())
