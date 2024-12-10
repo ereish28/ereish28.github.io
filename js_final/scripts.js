@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('nav.json')
       .then(response => response.json())
       .then(data => {
+        console.log(data);
         const nav = document.querySelector('nav');
         nav.innerHTML = ''; 
         data.links.forEach(link => {
