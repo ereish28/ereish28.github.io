@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log("Script loaded and running...");
 
     // Fetch navigation data
     fetch('nav.json')
         .then(response => {
-            if (!response.ok) 
+            if (!response.ok)
                 throw new Error(`HTTP error! Status: ${response.status}`);
             return response.json();
         })
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     updateCarousel();
                 });
             }
-            updateCarousel(); 
+            updateCarousel();
         });
     }
 
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Add carousel
                 const carouselContainer = document.createElement('div');
-                carouselContainer.classList.add('carousel-container');
+                carouselContainer.classList.add('carousel-container', 'projects-carousel');
                 const carousel = document.createElement('div');
                 carousel.classList.add('carousel');
                 project.images.forEach(image => {
@@ -122,14 +122,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="prev">&lt;</span>
                     <span class="next">&gt;</span>
                 `;
-                tabContent.appendChild(carouselContainer);
+                projectContainer.appendChild(carouselContainer);
             });
 
+            tabContent.appendChild(projectContainer);
             tabContentsContainer.appendChild(tabContent);
         });
 
         initializeTabs();
-        initializeCarousel('.carousel-container');
+        initializeCarousel('.projects-carousel');
     }
 
     // Initialize Tabs
