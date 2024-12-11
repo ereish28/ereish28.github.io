@@ -1,17 +1,6 @@
 {
     "projects": [
         {
-            "category": "CSS",
-            "name": "CSS Project 1",
-            "description": "CSS project.",
-            "images": ["images/symphonycss.png", "images/letterheadcss.png"],
-            "links": [
-                { "text": "Symphony CSS Project", "url": "https://mama1424.github.io/ccs_project_1.github.io/html/home.html" },
-                { "text": "Letterhead CSS Project", "url": "https://ereish28.github.io/ica/icaw6/ica6.html" },
-                { "text": "Letter CSS Project", "url": "http://ereish28.github.io/wa/wa5.html" }
-            ]
-        },
-        {
             "category": "HTML",
             "name": "HTML Project 1",
             "description": "HTML project.",
@@ -19,6 +8,17 @@
             "links": [
                 { "text": "Encyclopedia HTML Project", "url": "http://ereish28.github.io/wa/wa3.html" },
                 { "text": "Letter HTML Project", "url": "https://ereish28.github.io/ica/ica3a" }
+            ]
+        },
+        {
+            "category": "CSS",
+            "name": "CSS Project 1",
+            "description": "CSS project.",
+            "images": ["images/symphonycss.png", "images/letterheadcss.png", "images/janecss.png"],
+            "links": [
+                { "text": "Symphony CSS Project", "url": "https://mama1424.github.io/ccs_project_1.github.io/html/home.html" },
+                { "text": "Letterhead CSS Project", "url": "https://ereish28.github.io/ica/icaw6/ica6.html" },
+                { "text": "Letter CSS Project", "url": "http://ereish28.github.io/wa/wa5.html" }
             ]
         },
         {

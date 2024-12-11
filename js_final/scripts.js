@@ -36,7 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
             let currentIndex = 0;
 
             function updateCarousel() {
-                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                const totalImages = images.length;
+                if (totalImages > 0) {
+                    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    carousel.style.width = `${totalImages * 100}%`; // Ensure the carousel's width is correctly set
+                }
             }
 
             if (prevButton && nextButton) {
@@ -58,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Render Projects from JSON
     function renderProjects(projects) {
         console.log("Rendering projects:", projects);
-        const categories = ['CSS', 'HTML', 'JS'];
+        const categories = ['HTML', 'CSS', 'JS'];
         const tabsContainer = document.querySelector('.tabs');
         const tabContentsContainer = document.querySelector('#tab-contents');
 
@@ -104,34 +108,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 projectContainer.appendChild(linksContainer);
 
-                // Add carousel for each project
-                const carouselContainer = document.createElement('div');
-                carouselContainer.classList.add('carousel-container');
-                const carousel = document.createElement('div');
-                carousel.classList.add('carousel');
-
-                project.images.forEach(image => {
-                    const imgContainer = document.createElement('div');
-                    imgContainer.classList.add('carousel-image-container');
-                    imgContainer.innerHTML = `<img src="${image}" class="carousel-image" alt="${project.name}">`;
-                    carousel.appendChild(imgContainer);
-                });
-
-                const prevButton = document.createElement('span');
-                prevButton.classList.add('prev');
-                prevButton.textContent = '<';
-                const nextButton = document.createElement('span');
-                nextButton.classList.add('next');
-                nextButton.textContent = '>';
-
-                carouselContainer.appendChild(carousel);
-                carouselContainer.appendChild(prevButton);
-                carouselContainer.appendChild(nextButton);
-                tabContent.appendChild(carouselContainer);
+              // Add carousel
+            const carouselContainer = document.createElement('div');
+            carouselContainer.classList.add('carousel-container');
+            const carousel = document.createElement('div');
+            carousel.classList.add('carousel');
+            project.images.forEach(image => {
+                const imgContainer = document.createElement('div');
+                imgContainer.classList.add('carousel-image-container');
+                imgContainer.innerHTML = `<img src="${image}" class="carousel-image" alt="${project.name}">`;
+                carousel.appendChild(imgContainer);
             });
-
-            tabContentsContainer.appendChild(tabContent);
+            carouselContainer.appendChild(carousel);
+            carouselContainer.innerHTML += `
+                <span class="prev">&lt;</span>
+                <span class="next">&gt;</span>
+            `;
+            tabContent.appendChild(carouselContainer);
         });
+
+        tabContentsContainer.appendChild(tabContent);
+    });
 
         setTimeout(() => {
             console.log("Reinitializing tabs and carousels after rendering...");
