@@ -1,23 +1,34 @@
 {
     "projects": [
-      {
-        "category": "CSS",
-        "name": "CSS Project 1",
-        "description": "SS project.",
-        "images": ["images/symphonycss.png", "images/letterheadcss.png"]
-      },
-      {
-        "category": "HTML",
-        "name": "HTML Project 1",
-        "description": "HTML project.",
-        "images": ["images/encyclopediahtml.png", "images/letterheadhtml.png"]
-      },
-      {
-        "category": "JS",
-        "name": "JS Project 1",
-        "description": "JS project.",
-        "images": ["images/factsjs.png", "images/imagejs.png"]
-      }
+        {
+            "category": "CSS",
+            "name": "CSS Project 1",
+            "description": "CSS project.",
+            "images": ["images/symphonycss.png", "images/letterheadcss.png"],
+            "links": [
+                { "text": "Symphony CSS Project", "url": "https://example.com/symphony" },
+                { "text": "Letterhead CSS Project", "url": "https://example.com/letterhead" }
+            ]
+        },
+        {
+            "category": "HTML",
+            "name": "HTML Project 1",
+            "description": "HTML project.",
+            "images": ["images/encyclopediahtml.png", "images/letterheadhtml.png"],
+            "links": [
+                { "text": "Encyclopedia HTML Project", "url": "https://example.com/encyclopedia" },
+                { "text": "Letter HTML Project", "url": "https://example.com/letter" }
+            ]
+        },
+        {
+            "category": "JS",
+            "name": "JS Project 1",
+            "description": "JS project.",
+            "images": ["images/factsjs.png", "images/imagejs.png"],
+            "links": [
+                { "text": "Cool Cat Facts", "url": "https://example.com/cool-cat-facts" },
+                { "text": "Image Gallery", "url": "https://example.com/image-gallery" }
+            ]
+        }
     ]
-  }
-  
+}
