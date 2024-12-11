@@ -4,8 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Fetch navigation data
     fetch('nav.json')
         .then(response => {
-            if (!response.ok)
-                throw new Error(`HTTP error! Status: ${response.status}`);
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
             return response.json();
         })
         .then(data => {
@@ -36,10 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
             let currentIndex = 0;
 
             function updateCarousel() {
-                const totalImages = images.length;
-                if (totalImages > 0) {
+                if (images.length > 0) {
                     carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    carousel.style.width = `${totalImages * 100}%`;
                 }
             }
 
@@ -48,11 +45,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     currentIndex = (currentIndex - 1 + images.length) % images.length;
                     updateCarousel();
                 });
+
                 nextButton.addEventListener('click', () => {
                     currentIndex = (currentIndex + 1) % images.length;
                     updateCarousel();
                 });
             }
+
             updateCarousel();
         });
     }
@@ -122,15 +121,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     <span class="prev">&lt;</span>
                     <span class="next">&gt;</span>
                 `;
-                projectContainer.appendChild(carouselContainer);
+                tabContent.appendChild(projectContainer);
+                tabContent.appendChild(carouselContainer);
             });
 
-            tabContent.appendChild(projectContainer);
             tabContentsContainer.appendChild(tabContent);
         });
 
         initializeTabs();
-        initializeCarousel('.projects-carousel');
+        initializeCarousel('.carousel-container');
     }
 
     // Initialize Tabs
@@ -148,7 +147,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // Set the first tab as active by default
         if (tabs[0]) {
             tabs[0].classList.add('active');
             tabContents[0].classList.add('active');
@@ -164,8 +162,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("Fetching projects data...");
         fetch('projects.json')
             .then(response => {
-                if (!response.ok)
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                 return response.json();
             })
             .then(data => renderProjects(data.projects))

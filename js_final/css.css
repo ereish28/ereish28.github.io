@@ -110,8 +110,8 @@ nav li a:hover {
 
 .about-carousel .carousel-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover; 
+  height: auto;
+  object-fit: contain; 
 }
 
 /* Projects Page Carousel */
@@ -155,7 +155,6 @@ nav li a:hover {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transform: translateY(-50%);
   z-index: 2;
   pointer-events: none;
 }
@@ -169,6 +168,25 @@ nav li a:hover {
   cursor: pointer;
   user-select: none;
   border-radius: 50%;
+}
+
+/* Links within Projects */
+.project-links {
+  margin: 20px 0;
+}
+
+.project-links p {
+  margin: 5px 0;
+}
+
+.project-links a {
+  color: rgb(117, 213, 117);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.project-links a:hover {
+  color: darkgreen;
 }
 
 /* Responsive Layout for Smaller Screens */
