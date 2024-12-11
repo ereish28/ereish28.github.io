@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log("Rendering projects:", projects);
         const categories = ['CSS', 'HTML', 'JS'];
         const tabsContainer = document.querySelector('.tabs');
-        const tabContentsContainer = document.querySelector('#projects-tabs');
+        const tabContentsContainer = document.querySelector('#tab-contents');
 
         // Clear existing tabs and content
         tabsContainer.innerHTML = '';
@@ -119,6 +119,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             tabContentsContainer.appendChild(tabContent);
         });
+
+        setTimeout(() => {
+            console.log("Reinitializing tabs and carousels after rendering...");
+            initializeTabs();
+            initializeCarousel('.carousel-container');
+        }, 0); // Short delay to ensure DOM is updated
+
+
 
         // Reinitialize tab and carousel functionality
         initializeTabs();
