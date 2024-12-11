@@ -39,17 +39,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
             }
 
-            if (nextButton && prevButton) {
-                nextButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex + 1) % images.length; // Loop back to start
+            if (prevButton && nextButton) {
+                prevButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
                     updateCarousel();
                 });
-
-                prevButton.addEventListener('click', () => {
-                    currentIndex = (currentIndex - 1 + images.length) % images.length; // Loop back to end
+    
+                nextButton.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % images.length;
                     updateCarousel();
                 });
             }
+            updateCarousel(); 
         });
     }
 
@@ -90,6 +91,18 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3>${project.name}</h3>
                     <p>${project.description}</p>
                 `;
+
+                // Add project links
+                const linksContainer = document.createElement('div');
+                linksContainer.classList.add('project-links');
+
+                project.links.forEach(link => {
+                    const linkElement = document.createElement('p');
+                    linkElement.innerHTML = `<a href="${link.url}" target="_blank">${link.text}</a>`;
+                    linksContainer.appendChild(linkElement);
+                });
+
+                projectContainer.appendChild(linksContainer);
 
                 // Add carousel for each project
                 const carouselContainer = document.createElement('div');
