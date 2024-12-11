@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to initialize a carousel
     function initializeCarousel(containerSelector) {
+        console.log("Initializing carousels for:", containerSelector);
         const carousels = document.querySelectorAll(containerSelector);
 
         carousels.forEach(container => {
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Render Projects from JSON
     function renderProjects(projects) {
+        console.log("Rendering projects:", projects);
         const categories = ['CSS', 'HTML', 'JS'];
         const tabsContainer = document.querySelector('.tabs');
         const tabContentsContainer = document.querySelector('#projects-tabs');
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
         categories.forEach(category => {
+            console.log(`Processing category: ${category}`);
             // Create tab button
             const tabButton = document.createElement('button');
             tabButton.classList.add('tab-button');
@@ -79,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Filter and display projects in this category
             const categoryProjects = projects.filter(project => project.category === category);
+            console.log(`Projects in ${category}:`, categoryProjects);
             categoryProjects.forEach(project => {
                 const projectContainer = document.createElement('div');
                 projectContainer.classList.add('project-container');
@@ -123,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize Tabs
     function initializeTabs() {
+        console.log("Initializing tabs...");
         const tabs = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
 
@@ -152,13 +157,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Fetch and Render Projects
         if (window.location.pathname.includes('projects.html')) {
+            console.log("Fetching projects data...");
             fetch('projects.json')
                 .then(response => {
                     if (!response.ok)
                         throw new Error(`HTTP error! Status: ${response.status}`);
                     return response.json();
                 })
-                .then(data => renderProjects(data.projects))
+                .then(data => {
+                    console.log("Fetched project data successfully:", data);
+                    renderProjects(data.projects)
+                })
                 .catch(error => console.error('Error fetching project data:', error));
         }
     });
