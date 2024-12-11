@@ -2,8 +2,8 @@
     "projects": [
         {
             "category": "HTML",
-            "name": "HTML Project 1",
-            "description": "HTML project.",
+            "name": "HTML Projects",
+            "description": "Below I have linked my projects that demonstrate the use of HTML.",
             "images": ["images/encyclopediahtml.png", "images/letterheadhtml.png"],
             "links": [
                 { "text": "Encyclopedia HTML Project", "url": "http://ereish28.github.io/wa/wa3.html" },
@@ -12,8 +12,8 @@
         },
         {
             "category": "CSS",
-            "name": "CSS Project 1",
-            "description": "CSS project.",
+            "name": "CSS Projects",
+            "description": "Below I have linked my projects that demonstrate the use of CSS.",
             "images": ["images/symphonycss.png", "images/letterheadcss.png", "images/janecss.png"],
             "links": [
                 { "text": "Symphony CSS Project", "url": "https://mama1424.github.io/ccs_project_1.github.io/html/home.html" },
@@ -23,8 +23,8 @@
         },
         {
             "category": "JS",
-            "name": "JS Project 1",
-            "description": "JS project.",
+            "name": "JS Projects",
+            "description": "Below I have linked my projects that demonstrate the use of JS.",
             "images": ["images/factsjs.png", "images/imagejs.png"],
             "links": [
                 { "text": "Cool Cat Facts", "url": "https://ereish28.github.io/ica/ica12/ica12.html" },
