@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Script loaded and running..."); // Confirm script execution
+    console.log("Script loaded and running...");
 
     // Fetch navigation data
     fetch('nav.json')
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             nav.appendChild(ul);
         })
-        .catch(error => console.error('Error fetching navigation data:', error)); // Log fetch errors
+        .catch(error => console.error('Error fetching navigation data:', error));
 
     // Function to initialize a carousel
     function initializeCarousel(containerSelector) {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const totalImages = images.length;
                 if (totalImages > 0) {
                     carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-                    carousel.style.width = `${totalImages * 100}%`; // Ensure the carousel's width is correctly set
+                    carousel.style.width = `${totalImages * 100}%`;
                 }
             }
 
@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     currentIndex = (currentIndex - 1 + images.length) % images.length;
                     updateCarousel();
                 });
-    
                 nextButton.addEventListener('click', () => {
                     currentIndex = (currentIndex + 1) % images.length;
                     updateCarousel();
@@ -57,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarousel(); 
         });
     }
-
 
     // Render Projects from JSON
     function renderProjects(projects) {
@@ -70,9 +68,14 @@ document.addEventListener('DOMContentLoaded', function() {
         tabsContainer.innerHTML = '';
         tabContentsContainer.innerHTML = '';
 
-    
         categories.forEach(category => {
             console.log(`Processing category: ${category}`);
+            const categoryProjects = projects.filter(project => project.category === category);
+            if (categoryProjects.length === 0) {
+                console.log(`No projects found for ${category}. Skipping...`);
+                return;
+            }
+
             // Create tab button
             const tabButton = document.createElement('button');
             tabButton.classList.add('tab-button');
@@ -85,9 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
             tabContent.id = category.toLowerCase();
             tabContent.classList.add('tab-content');
 
-            // Filter and display projects in this category
-            const categoryProjects = projects.filter(project => project.category === category);
-            console.log(`Projects in ${category}:`, categoryProjects);
             categoryProjects.forEach(project => {
                 const projectContainer = document.createElement('div');
                 projectContainer.classList.add('project-container');
@@ -99,46 +99,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add project links
                 const linksContainer = document.createElement('div');
                 linksContainer.classList.add('project-links');
-
                 project.links.forEach(link => {
                     const linkElement = document.createElement('p');
                     linkElement.innerHTML = `<a href="${link.url}" target="_blank">${link.text}</a>`;
                     linksContainer.appendChild(linkElement);
                 });
-
                 projectContainer.appendChild(linksContainer);
 
-              // Add carousel
-            const carouselContainer = document.createElement('div');
-            carouselContainer.classList.add('carousel-container');
-            const carousel = document.createElement('div');
-            carousel.classList.add('carousel');
-            project.images.forEach(image => {
-                const imgContainer = document.createElement('div');
-                imgContainer.classList.add('carousel-image-container');
-                imgContainer.innerHTML = `<img src="${image}" class="carousel-image" alt="${project.name}">`;
-                carousel.appendChild(imgContainer);
+                // Add carousel
+                const carouselContainer = document.createElement('div');
+                carouselContainer.classList.add('carousel-container');
+                const carousel = document.createElement('div');
+                carousel.classList.add('carousel');
+                project.images.forEach(image => {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.classList.add('carousel-image-container');
+                    imgContainer.innerHTML = `<img src="${image}" class="carousel-image" alt="${project.name}">`;
+                    carousel.appendChild(imgContainer);
+                });
+                carouselContainer.appendChild(carousel);
+                carouselContainer.innerHTML += `
+                    <span class="prev">&lt;</span>
+                    <span class="next">&gt;</span>
+                `;
+                tabContent.appendChild(carouselContainer);
             });
-            carouselContainer.appendChild(carousel);
-            carouselContainer.innerHTML += `
-                <span class="prev">&lt;</span>
-                <span class="next">&gt;</span>
-            `;
-            tabContent.appendChild(carouselContainer);
+
+            tabContentsContainer.appendChild(tabContent);
         });
 
-        tabContentsContainer.appendChild(tabContent);
-    });
-
-        setTimeout(() => {
-            console.log("Reinitializing tabs and carousels after rendering...");
-            initializeTabs();
-            initializeCarousel('.carousel-container');
-        }, 0); // Short delay to ensure DOM is updated
-
-
-
-        // Reinitialize tab and carousel functionality
         initializeTabs();
         initializeCarousel('.carousel-container');
     }
@@ -149,43 +138,36 @@ document.addEventListener('DOMContentLoaded', function() {
         const tabs = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
 
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tabs.forEach(t => t.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-
-                    tab.classList.add('active');
-                    document.getElementById(tab.dataset.tab).classList.add('active');
-                });
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
             });
+        });
 
-            // Set the first tab as active by default
-            if (tabs[0]) {
-                tabs[0].classList.add('active');
-                tabContents[0].classList.add('active');
-            }
+        // Set the first tab as active by default
+        if (tabs[0]) {
+            tabs[0].classList.add('active');
+            tabContents[0].classList.add('active');
         }
+    }
 
-        // Initialize About Page Carousel
-        if (window.location.pathname.includes('about.html')) {
-            console.log("Initializing About Page Carousel");
-            initializeCarousel('.about-carousel');
-        }
+    if (window.location.pathname.includes('about.html')) {
+        console.log("Initializing About Page Carousel");
+        initializeCarousel('.about-carousel');
+    }
 
-
-        // Fetch and Render Projects
-        if (window.location.pathname.includes('projects.html')) {
-            console.log("Fetching projects data...");
-            fetch('projects.json')
-                .then(response => {
-                    if (!response.ok)
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Fetched project data successfully:", data);
-                    renderProjects(data.projects)
-                })
-                .catch(error => console.error('Error fetching project data:', error));
-        }
-    });
+    if (window.location.pathname.includes('projects.html')) {
+        console.log("Fetching projects data...");
+        fetch('projects.json')
+            .then(response => {
+                if (!response.ok)
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => renderProjects(data.projects))
+            .catch(error => console.error('Error fetching project data:', error));
+    }
+});
