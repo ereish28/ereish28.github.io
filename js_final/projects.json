@@ -3,19 +3,19 @@
       {
         "category": "CSS",
         "name": "CSS Project 1",
-        "description": "A creative CSS project.",
+        "description": "SS project.",
         "images": ["images/symphonycss.png", "images/letterheadcss.png"]
       },
       {
         "category": "HTML",
         "name": "HTML Project 1",
-        "description": "An elegant HTML project.",
+        "description": "HTML project.",
         "images": ["images/encyclopediahtml.png", "images/letterheadhtml.png"]
       },
       {
         "category": "JS",
         "name": "JS Project 1",
-        "description": "An interactive JS project.",
+        "description": "JS project.",
         "images": ["images/factsjs.png", "images/imagejs.png"]
       }
     ]

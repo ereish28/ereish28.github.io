@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Fetch and Render Projects
         if (window.location.pathname.includes('projects.html')) {
-            fetch('/js_final/projects.json')
+            fetch('projects.json')
                 .then(response => {
                     if (!response.ok)
                         throw new Error(`HTTP error! Status: ${response.status}`);
