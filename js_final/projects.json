@@ -6,8 +6,9 @@
             "description": "CSS project.",
             "images": ["images/symphonycss.png", "images/letterheadcss.png"],
             "links": [
-                { "text": "Symphony CSS Project", "url": "https://example.com/symphony" },
-                { "text": "Letterhead CSS Project", "url": "https://example.com/letterhead" }
+                { "text": "Symphony CSS Project", "url": "https://mama1424.github.io/ccs_project_1.github.io/html/home.html" },
+                { "text": "Letterhead CSS Project", "url": "https://ereish28.github.io/ica/icaw6/ica6.html" },
+                { "text": "Letter CSS Project", "url": "http://ereish28.github.io/wa/wa5.html" }
             ]
         },
         {
@@ -16,8 +17,8 @@
             "description": "HTML project.",
             "images": ["images/encyclopediahtml.png", "images/letterheadhtml.png"],
             "links": [
-                { "text": "Encyclopedia HTML Project", "url": "https://example.com/encyclopedia" },
-                { "text": "Letter HTML Project", "url": "https://example.com/letter" }
+                { "text": "Encyclopedia HTML Project", "url": "http://ereish28.github.io/wa/wa3.html" },
+                { "text": "Letter HTML Project", "url": "https://ereish28.github.io/ica/ica3a" }
             ]
         },
         {
@@ -26,8 +27,8 @@
             "description": "JS project.",
             "images": ["images/factsjs.png", "images/imagejs.png"],
             "links": [
-                { "text": "Cool Cat Facts", "url": "https://example.com/cool-cat-facts" },
-                { "text": "Image Gallery", "url": "https://example.com/image-gallery" }
+                { "text": "Cool Cat Facts", "url": "https://ereish28.github.io/ica/ica12/ica12.html" },
+                { "text": "Image Gallery", "url": "https://ereish28.github.io/wa/wa11/wa11.html" }
             ]
         }
     ]
